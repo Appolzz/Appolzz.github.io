@@ -1,0 +1,17 @@
+.img-card{
+  padding: 5rem;
+  border: red solid thin;
+  border-radius: 100px;
+  corner-shape: squircle;
+  background-image: linear-gradient(45deg, purple 5%, orange 90%);
+  align-items: center;
+}
+
+.card{
+  display: flex;
+  gap: 20px;
+}
+
+body{
+  background-color: bisque;
+}
