@@ -1,0 +1,38 @@
+.ice-cream-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  height: 100vh; 
+  position: relative;
+  margin: auto;
+}
+
+.cone {
+  width: 155px;
+  height: 165px;
+  background-color: palevioletred; 
+  border-radius: 200px;
+  z-index: 1; 
+  margin-top: -270px; 
+  position: absolute;
+  z-index: -1;
+}
+.cone2 {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(63, 168, 242); 
+  border-radius: 200px;
+  z-index: 1; 
+  margin-top: -490px; 
+  position: absolute;
+  z-index: -2;
+}
+.icecream { 
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-top: 250px solid tan; 
+  margin-top: 0; 
+}
