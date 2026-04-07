@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+1. Hover transition
+<br>
+<style>
+.card1 {
+  background: red;
+  height: 100px;
+  width: 100px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card1:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+</style>
+<div class="card1"></div>
+2. Preference for Transform/Opacity
+<br>
+Transform and Opacity dont require work from the GPU making it easier on performance
+<br>
+3. Reduce motion btn
+<br>
+<button id="toggle">toggle animation</button>
+
+<div class="card2">
+</div>
+
+<style>
+  .card2 {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card2:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  .nomotion {
+    transition: none !important;
+    transform: none !important;
+  }
+</style>
+<script>
+  const btn = document.getElementById('toggle');
+  const card = document.querySelector('.card2');
+
+  btn.addEventListener('click', () => {
+    card.classList.toggle('nomotion');
+    const isOff = card.classList.contains('nomotion');
+  });
+</script>
+
+1. Define a CSS transition and list its four shorthand parts with examples.
+<br>
+way to change property values over an amountt of time,
+shorthand parts with examples: property (opacity), duration (2s), timing-function (ease-in-out), delay (2s).
+<br>
+
+2. Explain the difference between transition and @keyframes animation. When would you use each?
+<br>
+Transitions need a trigger like hover, @keyframes run automatically or loop
+Use transitions for things you interact with and use keyframs for complicated animations that need to play automatically and/or loop
+<br>
+
+3. What does transform-origin control? Give an example.
+<br>
+sets the anchor point of an element, (transform-origin: top left;) will make the element rotate and move from that anchor point
+<br>
+
+4. Name two timing functions and describe how they feel to users.
+<br>
+linear feels like it has sudden stops and is less smooth ease-in-out feels more natural and smooth because it starts and ends slowly.
+<br>
+
+Task 1 - Hover Lift
+<style>
+.card {
+  background: red;
+  height: 100px;
+  width: 100px;
+  transition: transform 200ms ease, box-shadow 200ms ease; /*added shadow and 200ms transform*/
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px); /*2px movement*/
+  box-shadow: 0 8px 16px rgba(0,0,0,1); /*shadow grows*/
+}
+</style>
+<div class="card"></div>
+I made it so that there is a shadow when you hover over this Div.
+I also made it move up by 2px, I used box shadow and transform.
+
+<br>
+Task 2 - Button Press
+<br>
+<style>
+.btn {
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    transition: transform 100ms ease; /*100ms ease for the button*/
+}
+
+.btn:active {
+  transform: scale(0.98); /*button gets slightly smaller when pressed for a second*/
+}
+
+.btn:focus-visible { /*visible focus state*/
+  outline: 5px solid red; 
+  outline-offset: 5px;
+}
+</style>
+<button class="btn"></button>
+I made the button get smaller by 0.98 when clicked. I also added the focus outline and 100ms ease.
+<br>
+Task 3 - Keyframes Badge
+<br>
+<style>
+.badge {
+  height: 100px;
+  width: 100px;
+  background: purple;
+  border-radius: 5px;
+  animation: badge 2s ease-in-out 6; /*ease in out and happens 6 times*/
+}
+
+@keyframes badge { /*keyframes for transform*/
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+</style>
+<div class="badge"></div>
+I made it so the badge pulses 6 times and changes opacity before stopping. I used keyframes and opacity for this to work.
+<br>
+Task 4 - JS Trigger
+<br>
+<style>
+.panel {
+  opacity: 0; /*panel invisible*/
+  transform: translateY(10px); /*moves*/
+  transition: opacity 0.4s ease, transform 0.4s ease; 
+  margin-top: 10px;
+  padding: 20px;
+  background: grey;
+  border-radius: 10px;
+}
+.panel.show {
+  opacity: 1;
+  transform: translateY(0); /*panel moves up and is visible*/
+}
+</style>
+<button onclick="document.getElementById('panel').classList.toggle('show')">
+  Toggle Panel
+</button>
+
+<div id="panel" class="panel">
+  panel
+</div>
+I made it so when you click this button it toggles a panel that moves up and appears. The panel is invisible with 0% opacity and first and is moved down with translate.
+<br>
+
+Reflection:
+<br>
+It helped for the panel appearing, button being clicked, and for when hovering over something. It distracted through unnecessary hovering, unnecessary badge changing size, and any other unnecessary movements. For quick, snappy, eased movements, 200ms.
+I added more code to turn off animation for the reduce motion part. I also had to make shadows darker so they're visible.
+</body>
+</html>

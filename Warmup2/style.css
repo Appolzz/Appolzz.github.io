@@ -1,0 +1,48 @@
+.page{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
+    grid-template-areas:
+    'header header header'
+    'Lsidebar Upmid Rsidebar'
+    'Lsidebar Lowmid Rsidebar'
+    'Lsidebar Lowmid Rsidebar'
+    'footer footer footer';
+    min-height: 100vh;
+}
+.header{
+    grid-area: header;
+    background-color: purple;
+    border: 2px solid black;
+    text-align: center;
+}
+.Lsidebar{
+    grid-area: Lsidebar;
+    background-color: orange;
+    border: 2px solid black;
+    text-align: center;
+}
+.Upmid{
+    grid-area: Upmid;
+    background-color: blue;
+    border: 2px solid black;
+    text-align: center;
+}
+.Lowmid{
+    grid-area: Lowmid;
+    background-color: red;
+    border: 2px solid black;
+    text-align: center;
+}
+.Rsidebar{
+    grid-area: Rsidebar;
+    background-color: yellow;
+    border: 2px solid black;
+    text-align: center;
+}
+.footer{
+    grid-area: footer;
+    background-color: green;
+    border: 2px solid black;
+    text-align: center;
+}

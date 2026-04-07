@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--
+Part A:
+1. CSS Grid: a two-dimensional layout system (rows + columns). Flexbox is one-dimensional (single axis: row or column).
+2. grid-template-columns / grid-template-rows: define column/row tracks. Example: grid-template-columns: 1fr 2fr 1fr; grid-template-rows: auto 200px;
+3. fr units: fractional parts of remaining space. 1fr 2fr 1fr gives proportions 1:2:1 and adapts to gaps; 33%/34%/33% are fixed percentages.
+4. Three responsive columns: grid-template-columns: repeat(3, minmax(150px, 1fr));
+5. auto-fit with minmax(): use to let columns wrap and collapse empty tracks; it fits as many columns as space allows.
+6. Span all columns (line-based): grid-column: 1 / -1;
+7. Grid template areas: name layout regions and place items by area; improves readability and makes rearranging easier.
+
+Part C:
+Grid made the 2D gallery simpler than a flex only approach because I could control 
+both rows and columns. gap and fr were most useful for consistent spacing and proportional 
+sizing, and minmax kept cards readable on small screens. Template areas are helpful for 
+complex layouts, but not needed for this simple gallery. I made sure there was accessibility with 
+focusable links, visible focus outlines, readable font sizes, and good caption contrast. 
+Using auto-fit and minmax allowed the gallery to remain legible on smaller screens.
+-->
+  <div class="layout">
+  <header class="site-header"><div class="wrap"><h1>Portfolio</h1></div></header>
+
+  <main class="site-main wrap">
+    <div class="cards">
+      <figure class="card">
+        <a href="https://unsplash.com/photos/hikers-ascend-a-snowy-mountain-path-towards-rock-arch-MSJgvzN51NE" class="card-link">
+          <img src="https://images.unsplash.com/photo-1771271949525-60603b18b16b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ski Mountain" />
+          <figcaption>Ski Mountain</figcaption>
+        </a>
+      </figure>
+
+      <figure class="card">
+        <a href="https://unsplash.com/photos/ice-capped-mountain-at-daytime-xfngap_DToE" class="card-link">
+          <img src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?q=80&w=1036&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mountain landscape with sunset" />
+          <figcaption>Mountain with sunset</figcaption>
+        </a>
+      </figure>
+
+      <figure class="card">
+        <a href="https://unsplash.com/photos/body-of-water-and-snow-covered-mountains-during-daytime-YFFGkE3y4F8" class="card-link">
+          <img src="https://images.unsplash.com/photo-1480497490787-505ec076689f?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mountain and lake" />
+          <figcaption>Mountain and lake</figcaption>
+        </a>
+      </figure>
+
+      <figure class="card">
+        <a href="https://unsplash.com/photos/a-very-tall-mountain-covered-in-snow-under-a-blue-sky-NNmiv6zcFvk" class="card-link">
+          <img src="https://plus.unsplash.com/premium_photo-1675629118861-dc8aa2acea74?q=80&w=1034&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spikey mountain" />
+          <figcaption>Spikey mountain</figcaption>
+        </a>
+    </figure>
+
+      <figure class="card">
+        <a href="https://unsplash.com/photos/the-sun-is-setting-over-a-mountain-with-wildflowers-in-the-foreground-w6ppVi2-k2g" class="card-link">
+          <img src="https://plus.unsplash.com/premium_photo-1674917000586-b7564f21540e?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mountains and dog" />
+          <figcaption>Mountains and dog</figcaption>
+        </a>
+      </figure>
+
+      <figure class="card">
+        <a href="https://unsplash.com/photos/a-mountain-range-covered-in-snow-under-a-blue-sky-SyfvrXRy28Y" class="card-link">
+          <img src="https://plus.unsplash.com/premium_photo-1672115680958-54438df0ab82?q=80&w=2084&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Big mountains" />
+          <figcaption>Big mountains</figcaption>
+        </a>
+      </figure>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="wrap">Footer</div></footer>
+</div>
+</body>
+</html>
