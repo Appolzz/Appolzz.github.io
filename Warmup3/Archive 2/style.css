@@ -1,0 +1,38 @@
+.container{
+    min-height: 100vh;
+}
+
+.tri1{
+    width: 0; 
+    height: 0; 
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 150px solid red;
+    animation: rotate1 2s infinite linear;
+    animation-play-state: running;
+}
+@keyframes rotate1 {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
+.tri2{
+    width: 0; 
+    height: 0; 
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 150px solid red;
+    animation: rotate2 2s infinite linear;
+    animation-play-state: running;
+}
+@keyframes rotate2 {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: -360deg;
+    }
+}
