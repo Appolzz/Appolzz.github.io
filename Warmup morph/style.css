@@ -4,7 +4,7 @@
     border-top:0px solid transparent;
     border-left: 100px solid transparent;
     border-right: 100px solid transparent;
-    border-bottom: 180px solid red;
+    border-bottom: 200px solid red;
     animation: morph 4s infinite ease-in-out;
     
 }
@@ -16,7 +16,7 @@
     border-top:0px solid transparent;
     border-left: 100px solid transparent;
     border-right: 100px solid transparent;
-    border-bottom: 180px solid red;
+    border-bottom: 200px solid red;
     border-radius: 0%;
     }
     33%{
@@ -40,7 +40,7 @@
     border-top:0px solid transparent;
     border-left: 100px solid transparent;
     border-right: 100px solid transparent;
-    border-bottom: 180px solid red;
+    border-bottom: 200px solid red;
     border-radius: 0%;
     }
 
