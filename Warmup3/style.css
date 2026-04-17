@@ -6,7 +6,7 @@
     height: 200px;
     width: 200px;
     background-color: red;
-    animation: round 2s infinite ease-in-out;
+    animation: round 1s infinite;
 }
 
 @keyframes round {
