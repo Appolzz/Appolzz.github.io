@@ -88,3 +88,34 @@ main{
   margin: 0px;
   padding: 0px;
 }
+:root {
+  --brand-primary: blue;
+  --brand-secondary: grey;
+  --color-bg: white;
+  --color-text-main: rgb(46, 43, 43);
+  --color-text-muted: rgb(163, 163, 163);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --font-size-base: 1rem;
+  --line-height-base: 1.5;
+  --heading-scale: 1.25;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --space-md: 2rem;
+    --space-lg: 3rem;
+    --font-size-base: 1.125rem;
+    --heading-scale: 1.5;
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  padding: var(--space-md);
+}
