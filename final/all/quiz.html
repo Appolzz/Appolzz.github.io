@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="request.html">Request Form</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="bootstrap.html">Bootstrap</a></li>
+      <li><a href="pokemon.html">Pokémon</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="page-heading">
+      <h1>Quiz</h1>
+    </div>
+    <div class="form-card" style="max-width:520px;" id="quiz-card">
+      <p id="q-number" style="color:#6b7280;margin-top:0.5rem;"></p>
+      <p id="q-text" style="font-size:1.1rem;font-weight:600;margin:0.75rem 0;"></p>
+      <div id="q-options" style="display:flex;flex-direction:column;gap:0.5rem;"></div>
+      <p id="q-feedback" style="margin-top:0.75rem;font-weight:600;"></p>
+      <button id="q-next" onclick="nextQuestion()" style="display:none;margin-top:0.75rem;">Next</button>
+      <div id="q-result" style="display:none;text-align:center;">
+        <p style="font-size:1.5rem;font-weight:700;" id="q-score"></p>
+        <button onclick="restartQuiz()">Restart</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    var questions = [
+      { q: "What does HTML stand for?", options: ["HyperText Markup Language", "High Transfer Markup Language", "HyperText Machine Language", "Hyper Tool Markup Language"], answer: 0 },
+      { q: "Which CSS property changes text color?", options: ["font-color", "text-color", "color", "background-color"], answer: 2 },
+      { q: "What tag is used for a paragraph in HTML?", options: ["<div>", "<p>", "<span>", "<section>"], answer: 1 },
+      { q: "Which language runs in the browser to add interactivity?", options: ["Python", "Java", "JavaScript", "PHP"], answer: 2 },
+      { q: "What does CSS stand for?", options: ["Creative Style Sheets", "Cascading Style Sheets", "Colorful Style Syntax", "Computer Style Sheets"], answer: 1 }
+    ];
+    var current = 0;
+    var score = 0;
+    var answered = false;
+
+    function loadQuestion() {
+      answered = false;
+      var q = questions[current];
+      document.getElementById('q-number').textContent = 'Question ' + (current + 1) + ' of ' + questions.length;
+      document.getElementById('q-text').textContent = q.q;
+      document.getElementById('q-feedback').textContent = '';
+      document.getElementById('q-next').style.display = 'none';
+      var opts = document.getElementById('q-options');
+      opts.innerHTML = '';
+      q.options.forEach(function(opt, i) {
+        var btn = document.createElement('button');
+        btn.textContent = opt;
+        btn.style.cssText = 'text-align:left;background:#f3f4f6;color:#1f2937;padding:0.7rem 1rem;';
+        btn.onclick = function() { checkAnswer(i, btn); };
+        opts.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(i, btn) {
+      if (answered) return;
+      answered = true;
+      var correct = questions[current].answer;
+      if (i === correct) {
+        score++;
+        btn.style.background = '#bbf7d0';
+        document.getElementById('q-feedback').textContent = 'Correct!';
+        document.getElementById('q-feedback').style.color = 'green';
+      } else {
+        btn.style.background = '#fecaca';
+        document.getElementById('q-feedback').textContent = 'Wrong. Correct answer: ' + questions[current].options[correct];
+        document.getElementById('q-feedback').style.color = 'red';
+      }
+      document.getElementById('q-next').style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current >= questions.length) {
+        document.getElementById('q-number').textContent = '';
+        document.getElementById('q-text').textContent = '';
+        document.getElementById('q-options').innerHTML = '';
+        document.getElementById('q-feedback').textContent = '';
+        document.getElementById('q-next').style.display = 'none';
+        document.getElementById('q-result').style.display = 'block';
+        document.getElementById('q-score').textContent = score + ' / ' + questions.length;
+      } else {
+        loadQuestion();
+      }
+    }
+
+    function restartQuiz() {
+      current = 0; score = 0;
+      document.getElementById('q-result').style.display = 'none';
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>

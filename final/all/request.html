@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="request.html">Request Form</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="bootstrap.html">Bootstrap</a></li>
+      <li><a href="pokemon.html">Pokémon</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="page-heading">
+      <h1>Request Form</h1>
+      <p>Fill out this form to submit a request.</p>
+    </div>
+    <div class="form-card">
+      <form id="requestForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <div class="form-row">
+          <div>
+            <label for="grade">Grade</label>
+            <select id="grade" name="grade" required>
+              <option value="">Choose grade</option>
+              <option value="9">9th</option>
+              <option value="10">10th</option>
+              <option value="11">11th</option>
+              <option value="12">12th</option>
+            </select>
+          </div>
+          <div>
+            <label for="requestType">Request Type</label>
+            <select id="requestType" name="requestType" required>
+              <option value="">Choose type</option>
+              <option value="help">Help</option>
+              <option value="project">Project review</option>
+              <option value="feedback">Feedback</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div>
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time" required>
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <p id="request-message"></p>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

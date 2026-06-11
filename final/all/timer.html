@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="request.html">Request Form</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="bootstrap.html">Bootstrap</a></li>
+      <li><a href="pokemon.html">Pokémon</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="page-heading">
+      <h1>Timer</h1>
+      <p>Countdown timer.</p>
+    </div>
+    <div class="form-card" style="max-width:340px;text-align:center;">
+      <label for="timer-input">Set seconds</label>
+      <input type="number" id="timer-input" value="60" min="1" style="text-align:center;font-size:1.2rem;">
+      <p id="timer-display" style="font-size:3rem;font-weight:700;margin:1rem 0;">60</p>
+      <div style="display:flex;gap:0.5rem;justify-content:center;">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()" style="background:#6b7280;">Pause</button>
+        <button onclick="resetTimer()" style="background:#e5e7eb;color:#1f2937;">Reset</button>
+      </div>
+      <p id="timer-done" style="margin-top:0.75rem;color:green;font-weight:600;"></p>
+    </div>
+  </main>
+  <script>
+    var interval = null;
+    var remaining = 60;
+    var display = document.getElementById('timer-display');
+    var done = document.getElementById('timer-done');
+
+    function startTimer() {
+      if (interval) return;
+      remaining = remaining || parseInt(document.getElementById('timer-input').value);
+      done.textContent = '';
+      interval = setInterval(function() {
+        remaining--;
+        display.textContent = remaining;
+        if (remaining <= 0) {
+          clearInterval(interval);
+          interval = null;
+          done.textContent = 'Done!';
+        }
+      }, 1000);
+    }
+    function pauseTimer() {
+      clearInterval(interval);
+      interval = null;
+    }
+    function resetTimer() {
+      clearInterval(interval);
+      interval = null;
+      remaining = parseInt(document.getElementById('timer-input').value);
+      display.textContent = remaining;
+      done.textContent = '';
+    }
+    document.getElementById('timer-input').addEventListener('input', function() {
+      resetTimer();
+    });
+  </script>
+</body>
+</html>

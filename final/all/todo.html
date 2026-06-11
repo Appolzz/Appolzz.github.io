@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="request.html">Request Form</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="bootstrap.html">Bootstrap</a></li>
+      <li><a href="pokemon.html">Pokémon</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="page-heading">
+      <h1>To-Do List</h1>
+      <p>Add and remove tasks.</p>
+    </div>
+    <div class="form-card" style="max-width:480px;">
+      <div style="display:flex;gap:0.5rem;">
+        <input type="text" id="todo-input" placeholder="New task..." style="margin-top:0;">
+        <button onclick="addTodo()" style="margin-top:0;white-space:nowrap;">Add</button>
+      </div>
+      <ul id="todo-list" style="list-style:none;margin-top:1rem;padding:0;"></ul>
+    </div>
+  </main>
+  <script>
+    function addTodo() {
+      var input = document.getElementById('todo-input');
+      var text = input.value.trim();
+      if (!text) return;
+      var li = document.createElement('li');
+      li.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid #e5e7eb;';
+      li.innerHTML = '<span>' + text + '</span><button onclick="this.parentElement.remove()" style="margin-top:0;padding:0.3rem 0.7rem;font-size:0.85rem;">Remove</button>';
+      document.getElementById('todo-list').appendChild(li);
+      input.value = '';
+    }
+    document.getElementById('todo-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') addTodo();
+    });
+  </script>
+</body>
+</html>

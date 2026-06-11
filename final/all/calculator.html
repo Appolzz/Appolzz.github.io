@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="request.html">Request Form</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="bootstrap.html">Bootstrap</a></li>
+      <li><a href="pokemon.html">Pokémon</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="page-heading">
+      <h1>Calculator</h1>
+      <p>Basic calculator</p>
+    </div>
+    <div class="form-card" style="max-width:300px;">
+      <input type="text" id="calc-display" readonly style="font-size:1.4rem;text-align:right;margin-bottom:0.75rem;">
+      <div id="calc-buttons" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-top:0;">
+        <button onclick="calcPress('7')">7</button>
+        <button onclick="calcPress('8')">8</button>
+        <button onclick="calcPress('9')">9</button>
+        <button onclick="calcPress('/')">/</button>
+        <button onclick="calcPress('4')">4</button>
+        <button onclick="calcPress('5')">5</button>
+        <button onclick="calcPress('6')">6</button>
+        <button onclick="calcPress('*')">*</button>
+        <button onclick="calcPress('1')">1</button>
+        <button onclick="calcPress('2')">2</button>
+        <button onclick="calcPress('3')">3</button>
+        <button onclick="calcPress('-')">-</button>
+        <button onclick="calcPress('0')">0</button>
+        <button onclick="calcPress('.')">.</button>
+        <button onclick="calcEquals()">=</button>
+        <button onclick="calcPress('+')">+</button>
+        <button onclick="calcClear()" style="grid-column:span 4;background:#e5e7eb;color:#1f2937;">Clear</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    var display = document.getElementById('calc-display');
+    function calcPress(val) { display.value += val; }
+    function calcEquals() {
+      try { display.value = eval(display.value); } catch(e) { display.value = 'Error'; }
+    }
+    function calcClear() { display.value = ''; }
+  </script>
+</body>
+</html>
