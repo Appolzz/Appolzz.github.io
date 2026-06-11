@@ -13,7 +13,7 @@ body {
   line-height: 1.5;
 }
 nav {
-  background: #1d4ed8;
+  background: blueviolet;
 }
 nav ul {
   list-style: none;
@@ -32,10 +32,10 @@ nav a {
   padding: 0.6rem 0.9rem;
   text-decoration: none;
   border-radius: 8px;
-  background: #2563eb;
+  background: rgb(115, 34, 190);
 }
 nav a:hover {
-  background: #1e40af;
+  background: rgb(153, 88, 214);
 }
 main {
   max-width: 1080px;
@@ -94,7 +94,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 .project-card a {
-  color: #1d4ed8;
+  color: blueviolet;
   margin-top: 0.75rem;
   display: inline-block;
   text-decoration: none;
@@ -136,12 +136,12 @@ button {
   padding: 0.85rem 1rem;
   border: none;
   border-radius: 10px;
-  background: #1d4ed8;
+  background: blueviolet;
   color: #fff;
   cursor: pointer;
 }
 button:hover {
-  background: #2563eb;
+  background: rgb(115, 34, 190);
 }
 .form-row {
   display: grid;
